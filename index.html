@@ -1,947 +1,952 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hafid Benamar - Développeur IA & Data Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="style.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background: #0a0e27;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Animation d'étoiles en arrière-plan */
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(126, 34, 206, 0.4), 0 0 100px rgba(30, 60, 114, 0.3);
-            text-align: center;
-            border: 2px solid rgba(126, 34, 206, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        header h1 {
-            color: #fff;
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(126, 34, 206, 0.8), 0 0 40px rgba(30, 60, 114, 0.6);
-            position: relative;
-            z-index: 2;
-        }
-
-        header .subtitle {
-            font-size: 1.4em;
-            color: #a5f3fc;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(165, 243, 252, 0.5);
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-            font-size: 0.95em;
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-info span {
-            background: rgba(255,255,255,0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .profile-toggle {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(126, 34, 206, 0.3);
-        }
-
-        .toggle-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .toggle-btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            box-shadow: 0 5px 15px rgba(126, 34, 206, 0.3);
-        }
-
-        .toggle-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(126, 34, 206, 0.5);
-        }
-
-        .toggle-btn.active {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            box-shadow: 0 5px 20px rgba(245, 87, 108, 0.5);
-        }
-
-        nav {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.9) 0%, rgba(126, 34, 206, 0.9) 100%);
-            padding: 15px;
-            margin-bottom: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(126, 34, 206, 0.3);
-            position: sticky;
-            top: 20px;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(126, 34, 206, 0.3);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #a5f3fc;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s;
-            font-weight: 600;
-            text-shadow: 0 0 5px rgba(165, 243, 252, 0.5);
-        }
-
-        nav a:hover {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(126, 34, 206, 0.4);
-        }
-
-        section {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.6) 0%, rgba(126, 34, 206, 0.4) 100%);
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(126, 34, 206, 0.3);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(126, 34, 206, 0.3);
-        }
-
-        h2 {
-            color: #a5f3fc;
-            font-size: 2.5em;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #f093fb;
-            text-shadow: 0 0 15px rgba(165, 243, 252, 0.5);
-        }
-
-        .profile-badge {
-            display: inline-block;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            box-shadow: 0 5px 15px rgba(126, 34, 206, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .badge-alternance {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .badge-emploi {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-
-        .alert {
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            border-left: 5px solid;
-            backdrop-filter: blur(10px);
-        }
-
-        .alert-info {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
-            border-left-color: #667eea;
-        }
-
-        .alert-success {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.3) 100%);
-            border-left-color: #10b981;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, #667eea 0%, #f093fb 50%, #f5576c 100%);
-            box-shadow: 0 0 10px rgba(126, 34, 206, 0.5);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            padding: 25px;
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.4) 0%, rgba(126, 34, 206, 0.2) 100%);
-            border-radius: 15px;
-            border: 2px solid rgba(126, 34, 206, 0.3);
-            transition: all 0.3s;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(126, 34, 206, 0.4);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -48px;
-            top: 25px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border: 3px solid #0a0e27;
-            box-shadow: 0 0 15px rgba(240, 147, 251, 0.8);
-        }
-
-        .timeline-date {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(126, 34, 206, 0.4);
-        }
-
-        .timeline-item h3 {
-            color: #a5f3fc;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-
-        .timeline-item ul {
-            margin-left: 20px;
-            margin-top: 15px;
-        }
-
-        .timeline-item li {
-            margin-bottom: 10px;
-            color: #cbd5e1;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.5) 0%, rgba(126, 34, 206, 0.3) 100%);
-            padding: 25px;
-            border-radius: 15px;
-            border: 2px solid rgba(126, 34, 206, 0.3);
-            transition: all 0.3s;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(126, 34, 206, 0.4);
-        }
-
-        .skill-category h3 {
-            color: #f093fb;
-            margin-bottom: 20px;
-            font-size: 1.3em;
-            text-shadow: 0 0 10px rgba(240, 147, 251, 0.5);
-        }
-
-        .skill-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(126, 34, 206, 0.2);
-            color: #cbd5e1;
-        }
-
-        .skill-item:last-child {
-            border-bottom: none;
-        }
-
-        .stars {
-            color: #fbbf24;
-            text-shadow: 0 0 5px rgba(251, 191, 36, 0.5);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 25px;
-        }
-
-        .project-card {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.7) 0%, rgba(126, 34, 206, 0.5) 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(126, 34, 206, 0.3);
-            transition: all 0.3s;
-            border: 2px solid rgba(126, 34, 206, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(126, 34, 206, 0.5);
-        }
-
-        .project-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            color: #a5f3fc;
-            text-shadow: 0 0 10px rgba(165, 243, 252, 0.5);
-            position: relative;
-            z-index: 2;
-        }
-
-        .project-card p {
-            margin-bottom: 12px;
-            line-height: 1.8;
-            color: #e0e0e0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .tech-stack {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 1px solid rgba(126, 34, 206, 0.3);
-            position: relative;
-            z-index: 2;
-        }
-
-        .tech-stack strong {
-            display: block;
-            margin-bottom: 8px;
-            color: #f093fb;
-        }
-
-        footer {
-            background: linear-gradient(135deg, rgba(30, 60, 114, 0.9) 0%, rgba(126, 34, 206, 0.9) 100%);
-            padding: 30px;
-            margin-top: 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(126, 34, 206, 0.4);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(126, 34, 206, 0.3);
-        }
-
-        footer p {
-            color: #e0e0e0;
-            margin-bottom: 10px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .skills-grid, .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="stars" id="starsContainer"></div>
 
     <div class="container">
-        <header>
-            <h1>Hafid Benamar</h1>
-            <p class="subtitle">Développeur IA & Data Engineer | 10 ans d'expérience Full Stack</p>
-            <div class="contact-info">
-                <span>📍 83149 Bras</span>
-                <span>📞 06.20.08.53.03</span>
-                <span>✉ cyberhafid@gmail.com</span>
-                <span>🚗 Permis B</span>
-            </div>
-            <div class="contact-info" style="margin-top: 10px;">
-                <span>🌐 <a href="https://github.com/cyberhafid" style="color: #a5f3fc;">github.com/cyberhafid</a></span>
-                <span>🗓 <a href="https://linkedin.com/in/hafid-benamar" style="color: #a5f3fc;">linkedin.com/in/hafid-benamar</a></span>
-            </div>
-        </header>
+      <header>
+        <h1>Hafid Benamar</h1>
+        <p class="subtitle">
+          Développeur IA & Data Engineer | 10 ans d'expérience Full Stack
+        </p>
+        <div class="contact-info">
+          <span>📍 83149 Bras</span>
+          <span>📞 06.20.08.53.03</span>
+          <span>✉ cyberhafid@gmail.com</span>
+          <span>🚗 Permis B</span>
+        </div>
+        <div class="contact-info" style="margin-top: 10px">
+          <span
+            >🌐
+            <a href="https://github.com/cyberhafid" style="color: #a5f3fc"
+              >github.com/cyberhafid</a
+            ></span
+          >
+          <span
+            >🗓
+            <a
+              href="https://linkedin.com/in/hafid-benamar"
+              style="color: #a5f3fc"
+              >linkedin.com/in/hafid-benamar</a
+            ></span
+          >
+        </div>
+      </header>
 
-        <div class="profile-toggle">
-            <h3 style="color: #a5f3fc; margin-bottom: 15px;">Choisissez le profil à afficher :</h3>
-            <div class="toggle-buttons">
-                <button class="toggle-btn active" onclick="showProfile('alternance')">🎓 Profil Alternance</button>
-                <button class="toggle-btn" onclick="showProfile('emploi')">💼 Profil Emploi</button>
+      <div class="profile-toggle">
+        <h3 style="color: #a5f3fc; margin-bottom: 15px">
+          Choisissez le profil à afficher :
+        </h3>
+        <div class="toggle-buttons">
+          <button class="toggle-btn active" onclick="showProfile('alternance')">
+            🎓 Profil Alternance
+          </button>
+          <button class="toggle-btn" onclick="showProfile('emploi')">
+            💼 Profil Emploi
+          </button>
+      
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#experience">Expérience</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#formation">Formation</a></li>
+        </ul>
+      </nav>
+
+      <section id="accueil">
+        <h2>Profil</h2>
+
+        <div id="profile-alternance">
+          <span class="profile-badge badge-alternance"
+            >🎓 Recherche Alternance</span
+          >
+          <div class="alert alert-info">
+            <h4 style="margin-bottom: 15px; color: #a5f3fc; font-size: 1.3em">
+              Alternance - Développeur IA & Data Engineer
+            </h4>
+            <p>
+              <strong
+                >Développeur Full Stack avec plus de 10 ans d'expérience</strong
+              >, spécialisé dans le développement et l'intégration de chaînes de
+              traitement de données scientifiques. Expérience significative en
+              Python, Node.js, React.js et automatisation de pipelines CI/CD.
+            </p>
+            <p style="margin-top: 15px">
+              <strong
+                >Actuellement en reconversion vers l'Intelligence
+                Artificielle</strong
+              >, avec un intérêt marqué pour le traitement d'images, le machine
+              learning et la data science.
+            </p>
+            <p style="margin-top: 15px">
+              <strong>Recherche activement une alternance</strong> pour
+              approfondir mes compétences en IA, data engineering et
+              technologies émergentes, tout en apportant mon expérience solide
+              en développement et gestion de projets techniques.
+            </p>
+          </div>
+
+          <div class="alert alert-success">
+            <h4 style="margin-bottom: 15px; color: #10b981; font-size: 1.2em">
+              Atouts pour l'alternance :
+            </h4>
+            <ul style="margin-left: 20px">
+              <li>
+                <strong>Expérience confirmée</strong> : 4 ans au CNRS/CPPM sur
+                des projets scientifiques d'envergure internationale
+              </li>
+              <li>
+                <strong>Autonomie</strong> : Capacité à gérer des projets
+                complexes de A à Z
+              </li>
+              <li>
+                <strong>Stack technique solide</strong> : React.js, Node.js,
+                Python, PostgreSQL, Docker, CI/CD
+              </li>
+              <li>
+                <strong>Transition vers l'IA</strong> : Motivation forte pour le
+                machine learning et le traitement de données
+              </li>
+              <li>
+                <strong>Esprit d'équipe</strong> : Collaboration avec équipes
+                internationales (France, Chine)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="profile-emploi" class="hidden">
+          <span class="profile-badge badge-emploi">💼 Recherche Emploi</span>
+          <div class="alert alert-info">
+            <h4 style="margin-bottom: 15px; color: #a5f3fc; font-size: 1.3em">
+              Ingénieur en Développement Logiciel Full Stack
+            </h4>
+            <p>
+              <strong
+                >Ingénieur en développement logiciel avec plus de 10 ans
+                d'expérience</strong
+              >, dont 4 ans au Centre de Physique des Particules de Marseille
+              (CNRS/CPPM). Polyvalent, rigoureux et dynamique, j'ai acquis une
+              expertise en gestion de projets, développement d'applications
+              complexes et intégration d'infrastructures réseau.
+            </p>
+            <p style="margin-top: 15px">
+              <strong>Expertise technique confirmée</strong> : JavaScript
+              (Node.js, React.js), Python, PostgreSQL, MongoDB, Docker, CI/CD,
+              Administration Linux. Spécialisé dans le développement
+              d'applications scientifiques, l'automatisation de pipelines de
+              traitement de données et la supervision d'infrastructures Big
+              Data.
+            </p>
+            <p style="margin-top: 15px">
+              <strong>Recherche un poste</strong> de développeur Full Stack,
+              data engineer ou chef de projet technique dans des environnements
+              innovants (recherche scientifique, spatial, technologie, data
+              science).
+            </p>
+          </div>
+
+          <div class="alert alert-success">
+            <h4 style="margin-bottom: 15px; color: #10b981; font-size: 1.2em">
+              Points forts :
+            </h4>
+            <ul style="margin-left: 20px">
+              <li>
+                <strong>Projets d'envergure</strong> : SVOM (spatial
+                franco-chinois), DIRAC, e-PERON
+              </li>
+              <li>
+                <strong>Leadership technique</strong> : Gestion de +1M
+                d'entrées, réduction 30% temps traitement
+              </li>
+              <li>
+                <strong>Full Stack complet</strong> : Front (React.js), Back
+                (Node.js, Python), DevOps (Docker, CI/CD)
+              </li>
+              <li>
+                <strong>Big Data & Monitoring</strong> : Stack ELK, Grafana,
+                supervision 40+ services
+              </li>
+              <li>
+                <strong>Collaboration internationale</strong> : Projets avec
+                équipes France/Chine
+              </li>
+              <li>
+                <strong>Documentation & Formation</strong> : Mentorat nouveaux
+                arrivants, documentation technique complète
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="competences">
+        <h2>Compétences Techniques</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>💻 Backend & API</h3>
+            <div class="skill-item">
+              <span>Node.js / Express</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>Python</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+            <div class="skill-item">
+              <span>REST API</span>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>🎨 Frontend</h3>
+            <div class="skill-item">
+              <span>React.js / Redux</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>HTML5 / CSS3</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>Bootstrap</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>🗄️ Bases de données</h3>
+            <div class="skill-item">
+              <span>PostgreSQL</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>MySQL</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>🚀 DevOps & CI/CD</h3>
+            <div class="skill-item">
+              <span>Docker</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>GitLab CI</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>SonarQube</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>📊 Big Data & Supervision</h3>
+            <div class="skill-item">
+              <span>Elasticsearch</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+            <div class="skill-item">
+              <span>Logstash / Kibana</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+            <div class="skill-item">
+              <span>Grafana</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>🖥️ Systèmes & Réseaux</h3>
+            <div class="skill-item">
+              <span>Ubuntu Server</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>Apache / Nginx</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+            <div class="skill-item">
+              <span>RAID / NFS</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>⚙️ Méthodes</h3>
+            <div class="skill-item">
+              <span>Agile / Scrum</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>Tests unitaires</span>
+              <span class="stars">★★★★☆</span>
+            </div>
+            <div class="skill-item">
+              <span>Documentation</span>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>🎯 Qualités</h3>
+            <div class="skill-item">
+              <span>Rigueur</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>Autonomie</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="skill-item">
+              <span>Esprit d'équipe</span>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Expérience Professionnelle</h2>
+     
+
+
+
+
+
+         <div class="timeline-item" style="display: flex; gap: 30px;">
+  <!-- Colonne texte -->
+  <div style="flex: 1;">
+            <span class="timeline-date">2019 - 2024</span>
+            <h3>🚀 Développeur Full Stack - CNRS / CPPM</h3>
+            <p>
+              <strong>Centre de Physique des Particules de Marseille</strong>
+            </p>
+            <p>
+              <em
+                >Projets : SVOM (spatial franco-chinois), e-PERON (éducatif),
+                DIRAC (Big Data)</em
+              >
+            </p>
+            <ul>
+              <li>
+                ✓ Développement d'interfaces web scientifiques (React.js,
+                Node.js)
+              </li>
+              <li>
+                ✓ Création et maintenance d'API REST (Node.js / PostgreSQL) pour
+                le GIC
+              </li>
+              <li>
+                ✓ Intégration et automatisation de chaînes de traitement
+                d'images (Python)
+              </li>
+              <li>
+                ✓ Déploiement de pipelines CI/CD (GitLab), Dockerisation et
+                supervision via SonarQube
+              </li>
+              <li>
+                ✓ Administration de serveurs (Ubuntu, RAID, NFS, Apache,
+                PostgreSQL, pm2)
+              </li>
+              <li>
+                ✓ Collaboration au FSC (Centre français de données du projet
+                spatial SVOM)
+              </li>
+              <li>
+                ✓ Gestion de +1M d'entrées de données, réduction de 30% du temps
+                de traitement
+              </li>
+            </ul>
+
+
+
+
+
+            <div class="tech-stack">
+              <strong>Technologies :</strong> React.js, Node.js, Express,
+              PostgreSQL, Python, Docker, GitLab CI/CD, Elasticsearch, Ubuntu
+              Server
             </div>
         </div>
 
-        <nav>
+<div style="display: grid; grid-template-columns: repeat(1, 240px); gap: 5px; justify-content: flex-end;">
+<img
+  src="./gic.png"
+  alt="Screen Sensors"
+  data-full="./gic.png"
+  data-caption="Screen Sensors"
+  style="width:240px; border-radius:10px; cursor:zoom-in;"
+/>
+<img
+  src="./gic1.png"
+  alt="Screen Sensors"
+  data-full="./gic1.png"
+  data-caption="Screen Sensors"
+  style="width:240px; border-radius:10px; cursor:zoom-in;"
+/>
+
+
+
+ </div>
+
+ </div>
+
+
+          <div class="timeline-item">
+  <span class="timeline-date">2013 - 2018</span>
+  <h3>📋 Gestionnaire Locatif - ALOTRA</h3>
+  <p><strong>Marseille</strong></p>
+  <ul>
+    <li>✓ Gestion opérationnelle et suivi administratif d'un parc immobilier</li>
+    <li>✓ Optimisation et automatisation de tâches répétitives via scripts web</li>
+    <li>✓ Développement d'outils internes pour faciliter la gestion des données</li>
+    <li>✓ Amélioration du reporting et des processus métiers</li>
+    <li>✓ Gestion locative complète : bail, relances, recouvrement</li>
+    <li>✓ Suivi budgétaire, contrôle des coûts et planification des travaux</li>
+    <li>✓ Supervision des ressources humaines : paie, formation, recrutement</li>
+    <li>✓ Animation d’équipes et gestion des plannings</li>
+  </ul>
+  <div class="tech-stack">
+    <strong>Technologies :</strong> PHP, MySQL, HTML5, CSS3, Bootstrap
+  </div>
+</div>
+
+<div class="timeline-item" style="display: flex; gap: 30px;">
+  <div style="flex: 1;">
+    <span class="timeline-date">2007 - 2011</span>
+  <h3>🚍 Chef de projet - CYBERBUS (événementiel)</h3>
+  <p><strong>Marseille, France</strong></p>
+  <ul>
+    <li>✓ Création et Développement du projet : Bus Informatisé pour Cyber Kfé (Marseille)</li>
+    <li>✓ Analyse de l'existant, analyse de besoins et élaboration du projet</li>
+    <li>✓ Analyse des enjeux relatifs aux objectifs, évaluation/valorisation des ressources (macro-planification)</li>
+    <li>✓ Participation à la présentation des missions dans ses différentes étapes devant les partenaires financiers</li>
+    <li>✓ Suivi et mise en œuvre des solutions, accompagnement du changement</li>
+    <li>✓ Évaluation physique et comptable des résultats, proposition d'actions complémentaires</li>
+    <li>✓ Animation, coordination des actions du projet, appui méthodologique aux entités du groupe</li>
+  </ul>
+
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, 110px); gap: 15px; justify-content: flex-end;">
+<img
+  src="./BUSversoA3.jpg"
+  alt="Plaquette Commerciale Cyberbus"
+  data-full="./BUSversoA3.jpg"
+  data-caption="Plaquette Commerciale Cyberbus"
+  style="width:120px; border-radius:10px; cursor:zoom-in;"
+/>
+<img
+  src="./BUSRECTOA3.jpg"
+  alt="Plaquette Commerciale Cyberbus"
+  data-full="./BUSRECTOA3.jpg"
+  data-caption="Plaquette Commerciale Cyberbus"
+  style="width:120px; border-radius:10px; cursor:zoom-in;"
+/>
+
+
+<img
+  src="./fICHEenfant.jpg"
+  alt="Plaquette Commerciale Cyberbus"
+  data-full="./fICHEenfant.jpg"
+  data-caption="Plaquette Commerciale Cyberbus"
+  style="width:120px; border-radius:10px; cursor:zoom-in;"
+/>
+<img
+  src="./fICHESenior.jpg"
+  alt="Plaquette Commerciale Cyberbus"
+  data-full="./fICHESenior.jpg"
+  data-caption="Plaquette Commerciale Cyberbus"
+  style="width:120px; border-radius:10px; cursor:zoom-in;"
+/>
+
+
+</div>
+</div>
+
+
+
+<div class="timeline-item">
+  <span class="timeline-date">2007 - 2011</span>
+  <h3>🖥️ Responsable technique - CYBERBUS (informatique)</h3>
+  <p><strong>Marseille, France</strong></p>
+  <ul>
+    <li>✓ Mise en place du réseau informatique du Cyberbus (3G, Wi-Fi, filaire)</li>
+    <li>✓ Installation et sécurisation du parc réseaux sur plusieurs sites</li>
+    <li>✓ Conception et développement de progiciels (PHP, HTML, CSS)</li>
+    <li>✓ Animation multimédia : formation des élèves, seniors, partenaires TICE</li>
+    <li>✓ Coordination, suivi administratif, présentation aux partenaires financiers</li>
+    <li>✓ Analyse des besoins, élaboration et mise en œuvre des solutions techniques</li>
+    <li>✓ Support réseau et installation serveurs Windows 2003 (DNS, Active Directory, DHCP...)</li>
+  </ul>
+  <div class="tech-stack">
+    <strong>Technologies :</strong> Réseaux TCP/IP, 3G, Wi-Fi, filaire, serveurs Windows, PHP, HTML, CSS
+  </div>
+</div>
+
+   <div class="timeline-item" style="display: flex; gap: 30px;">
+    <div style="flex: 1;">
+  <span class="timeline-date">2003 - 2004</span>
+  <h3>👨‍💼 Responsable centre de ressource multimédia - Cyber Kfé</h3>
+  <p><strong>Marseille</strong></p>
+  <ul>
+    <li>✓ Direction d’une équipe pour le développement d’applications pour cybercafés</li>
+    <li>✓ Conception de progiciels comptables et de gestion des salaires (Visual Basic)</li>
+    <li>✓ Sécurisation et développement d’outils en C pour postes de travail</li>
+    <li>✓ Design, ergonomie et création de sites internet</li>
+    <li>✓ Gestion du réseau et des postes sous Windows et Linux</li>
+  </ul>
+
+  <div class="tech-stack">
+    <strong>Technologies :</strong> Visual Basic, C, PHP, MySQL, Windows, Linux
+  </div>
+  </div>
+<div style="display: grid; grid-template-columns: repeat(2, 110px); gap: 15px; justify-content: flex-end;">
+   
+<img
+  src="./cyberkfe.png"
+  alt="Plaquette Commerciale Cyberkfe"
+  data-full="./cyberkfe.png"
+  data-caption="Plaquette Commerciale Cyberbus"
+  style="width:240px; border-radius:10px; cursor:zoom-in;"
+/>
+
+</div>
+</div>
+
+<div class="timeline-item">
+  <span class="timeline-date">2001 - 2003</span>
+  <h3>📋 Agent administratif - Cyber Kfé</h3>
+  <p><strong>Marseille</strong></p>
+  <ul>
+    <li>✓ Gestion comptable générale jusqu’au bilan</li>
+    <li>✓ Paie, charges sociales, déclarations fiscales</li>
+    <li>✓ Encadrement d’une équipe de 6 personnes</li>
+    <li>✓ Gestion administrative et suivi des plannings et absences</li>
+    <li>✓ Relation avec organismes sociaux et partenaires</li>
+  </ul>
+  <div class="tech-stack">
+    <strong>Compétences :</strong> Comptabilité, paie, administration, management
+  </div>
+</div>
+
+<div class="timeline-item">
+  <span class="timeline-date">1998 - 1999</span>
+  <h3>🔧 Monteur / Assembleur informatique - Alpha Media</h3>
+  <p><strong>Châteauneuf-les-Martigues</strong></p>
+  <ul>
+    <li>✓ Montage et assemblage complets d’ordinateurs</li>
+    <li>✓ Vérification compatibilité des systèmes et tests performances</li>
+    <li>✓ Préparation et installation de systèmes d’exploitation, optimisation software</li>
+  </ul>
+  <div class="tech-stack">
+    <strong>Compétences :</strong> Montage hardware, test performance, optimisation
+  </div>
+</div>
+
+    
+
+
+
+
+        </div>
+      </section>
+      <section id="projets">
+        <h2>Projets Marquants</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>🛰️ SVOM / COLIBRI</h3>
+            <img
+              src="https://images.cnrs.fr/system/files/styles/full_image_mobile_watermark/private/media/images/2023/05/CNRS_20230087_0015_69594.jpg?itok=ylTJyLHg"
+              alt="Logo SVOM"
+              data-full="https://images.cnrs.fr/system/files/styles/full_image_desktop_watermark/private/media/images/2023/05/CNRS_20230087_0008_69581.jpg?itok=cNpeq496"
+              data-caption="Logo SVOM"
+               style="width:80px; border-radius:10px; cursor:zoom-in;"
+            />
+            <img
+              src="https://www.svom.eu/wp-content/uploads/2020/02/SVOM_QM_TVAC-600x401.jpg"
+              alt="Télescope spatial"
+              data-full="https://www.svom.eu/wp-content/uploads/2019/12/SVOM_eclate-600x312.jpg"
+              data-caption="Télescope spatial"
+              style="width:160px; border-radius:10px; cursor:zoom-in;"
+            />
+            <p><strong>Projet spatial franco-chinois</strong></p>
+            <p>
+              ✓ Gestion de télescopes robotiques pour la détection de sursauts
+              gamma
+            </p>
+            <p>✓ Conception de plateformes web scientifiques (GIC)</p>
+            <p>
+              ✓ Automatisation de chaînes de traitement d'images astronomiques
+            </p>
+            <p>✓ Dashboards temps réel (qualité du ciel, capteurs)</p>
+            <p>✓ +1 million d'entrées gérées</p>
+            <div class="tech-stack">
+              <strong>Stack :</strong> React.js, Node.js, PostgreSQL, Python,
+              Docker, GitLab CI/CD
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>🔬 e-PERON</h3>
+            <p><strong>Plateforme éducative scientifique</strong></p>
+                  <img
+              src="./eperon.png"
+              alt="Logo SVOM"
+              data-full="./eperon.png"
+              data-caption="Logo SVOM"
+               style="width:110px; border-radius:10px; cursor:zoom-in;"
+            />
+                <img
+              src="./eperon1.png"
+              alt="Logo SVOM"
+              data-full="./eperon1.png"
+              data-caption="Logo SVOM"
+               style="width:130px; border-radius:10px; cursor:zoom-in;"
+            />
+            <p>✓ Interface d'accès aux données sur les rayons cosmiques</p>
+            <p>✓ Outils d'analyse pour enseignants et élèves</p>
+            <p>✓ Graphiques interactifs (Chart.js, D3.js)</p>
+            <p>✓ 50+ enseignants, 300+ élèves utilisateurs</p>
+            <p>✓ Optimisation pour millions de lignes de données</p>
+            <div class="tech-stack">
+              <strong>Stack :</strong> React.js, Node.js, PostgreSQL, Chart.js,
+              D3.js
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>📊 DIRAC - Monitoring Big Data</h3>
+            <p><strong>Calcul distribué physique hautes énergies</strong></p>
+
+                         <img
+              src="./epe1.png"
+              alt="Logo SVOM"
+              data-full="./epe1.png"
+              data-caption="Logo SVOM"
+              
+            />
+                <img
+              src="./epe3.png"
+              alt="Logo SVOM"
+              data-full="./epe3.png"
+              data-caption="Logo SVOM"
+            />
+            <p>✓ Installation et configuration ELK Stack</p>
+            <p>✓ Supervision centralisée pour 40+ services</p>
+            <p>✓ Dashboards personnalisés par équipe</p>
+            <p>✓ Analyse et visualisation de logs complexes</p>
+            <p>✓ Formation des collaborateurs à l'outil</p>
+            <div class="tech-stack">
+              <strong>Stack :</strong> Elasticsearch, Logstash, Kibana, Grafana,
+              React.js
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>⚽ World Soccer Place</h3>
+            <p><strong>Projet Wild Code School</strong></p>
+
+
+                      <img
+              src="./foot.png"
+              alt="Logo SVOM"
+              data-full="./foot.png"
+              data-caption="Screen Paie"
+            />
+            <p>✓ WebApp de référencement football mondial</p>
+            <p>✓ Base de données équipes et joueurs internationaux</p>
+            <p>✓ Intégration API données en temps réel</p>
+            <p>✓ Interface responsive et moderne</p>
+            <p>✓ Projet en équipe (méthodes Agile)</p>
+            <div class="tech-stack">
+              <strong>Stack :</strong> React.js, Node.js, Bootstrap, API
+              Football
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>📱 Coiffinthestreet</h3>
+                
+     
+            <p><strong>Application Android</strong></p>
+            <p>✓ App pour coiffeurs bénévoles</p>
+            <p>✓ Géolocalisation et mise en relation</p>
+            <p>✓ Système de réservation intégré</p>
+            <p>✓ Interface intuitive et accessible</p>
+            <div class="tech-stack">
+              <strong>Stack :</strong> React Native, Node.js, MongoDB
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>🏆 HANDIPACA - Hackathon DataWeek</h3>
+            <p><strong>2ème place - 24h de développement</strong></p>
+            <p>✓ Application Android d'accessibilité</p>
+            <p>✓ Solution innovante en 24h</p>
+            <p>✓ Travail en équipe sous pression</p>
+            <p>✓ Présentation devant jury professionnel</p>
+            <div class="tech-stack">
+              <strong>Stack :</strong> React Native, Node.js, API externes
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>🏠 Gestion Locative Immobilière</h3>
+            <p><strong>Système de gestion complet</strong></p>
+
+                      <img
+              src="./sci.png"
+              alt="Logo SVOM"
+              data-full="./sci.png"
+              data-caption="Screen Paie"
+            />
+                  <img
+              src="./gestiondesite.png"
+              alt="Réseau du Cyberbus"
+              data-full="./gestiondesite.png"
+              data-caption="Installation réseau Cyrebus"
+                style="width:120px; max-width:100%; border-radius:10px; cursor:zoom-in;"
+            />
+            <p>✓ Suivi loyers en temps réel</p>
+            <p>✓ Génération documents (quittances, états lieux)</p>
+            <p>✓ Relances automatiques</p>
+            <p>✓ Dashboard de pilotage</p>
+            <div class="tech-stack">
+              <strong>Stack :</strong> PHP, MySQL, HTML5, CSS3, Bootstrap
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>💰 Bulletin de Paie en Ligne</h3>
+              <p><strong>Solution de gestion sociale</strong></p>
+                 <img
+              src="./paie.png"
+              alt="Logo SVOM"
+              data-full="./paie.png"
+              data-caption="Screen Paie"
+            />
+                        <img
+              src="./pointage.png"
+              alt="Logo SVOM"
+              data-full="./pointage.png"
+              data-caption="Screen Paie"
+            />
+          
+            <p>✓ Calcul automatique des paies</p>
+            <p>✓ Contrats aidés (CAE), réduction Fillon</p>
+            <p>✓ Gestion des primes et cotisations</p>
+            <p>✓ Export comptable automatisé</p>
+            <div class="tech-stack">
+              <strong>Stack :</strong> PHP, MySQL, Bootstrap
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Bus informatisé itinérant (2007–2011)</h3>
+            <img
+              src="./BUSversoA3.jpg"
+              alt="Cyberbus"
+              data-full="./BUSRECTOA3.jpg"
+              data-caption="Bus informatisé itinérant"
+            />
+            <img
+              src="./affiche-cyberbusavril.jpg"
+              alt="Réseau du Cyberbus"
+              data-full="./affiche-cyberbusavril.jpg"
+              data-caption="Installation réseau Cyrebus"
+                style="width:120px; max-width:100%; border-radius:10px; cursor:zoom-in;"
+            />
+            <p>
+              Création et développement d’un bus informatisé itinérant à
+              Marseille.
+            </p>
+            <p>✓ Analyse des besoins, coordination et suivi technique.</p>
+            <p>
+              ✓ Installation réseau (TCP/IP, Wi-Fi, 3G+), serveurs
+              Windows/Linux, sécurité système.
+            </p>
+            <p>
+              ✓ Animation et formation multimédia pour le public et les seniors.
+            </p>
+            <p>
+              ✓ Présentation du projet aux partenaires institutionnels et
+              financiers.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="formation">
+        <h2>Formation</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-date">Fév - Juil 2019</span>
+            <h3>🎓 Développeur Web & Mobile (BAC +2)</h3>
+            <p><strong>Wild Code School - Marseille</strong></p>
             <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#formation">Formation</a></li>
+              <li>✓ Formation intensive de 5 mois</li>
+              <li>
+                ✓ Réalisation d'applications Android (React Native, Node.js)
+              </li>
+              <li>
+                ✓ Participation à plusieurs hackathons (DataWeek 2ème place,
+                Easter Egg)
+              </li>
+              <li>✓ Méthodologie Agile / Scrum</li>
+              <li>✓ Projets en équipe et individuels</li>
             </ul>
-        </nav>
-
-        <section id="accueil">
-            <h2>Profil</h2>
-            
-            <div id="profile-alternance">
-                <span class="profile-badge badge-alternance">🎓 Recherche Alternance</span>
-                <div class="alert alert-info">
-                    <h4 style="margin-bottom: 15px; color: #a5f3fc; font-size: 1.3em;">Alternance - Développeur IA & Data Engineer</h4>
-                    <p><strong>Développeur Full Stack avec plus de 10 ans d'expérience</strong>, spécialisé dans le développement et l'intégration de chaînes de traitement de données scientifiques. Expérience significative en Python, Node.js, React.js et automatisation de pipelines CI/CD.</p>
-                    <p style="margin-top: 15px;"><strong>Actuellement en reconversion vers l'Intelligence Artificielle</strong>, avec un intérêt marqué pour le traitement d'images, le machine learning et la data science.</p>
-                    <p style="margin-top: 15px;"><strong>Recherche activement une alternance</strong> pour approfondir mes compétences en IA, data engineering et technologies émergentes, tout en apportant mon expérience solide en développement et gestion de projets techniques.</p>
-                </div>
-
-                <div class="alert alert-success">
-                    <h4 style="margin-bottom: 15px; color: #10b981; font-size: 1.2em;">Atouts pour l'alternance :</h4>
-                    <ul style="margin-left: 20px;">
-                        <li><strong>Expérience confirmée</strong> : 4 ans au CNRS/CPPM sur des projets scientifiques d'envergure internationale</li>
-                        <li><strong>Autonomie</strong> : Capacité à gérer des projets complexes de A à Z</li>
-                        <li><strong>Stack technique solide</strong> : React.js, Node.js, Python, PostgreSQL, Docker, CI/CD</li>
-                        <li><strong>Transition vers l'IA</strong> : Motivation forte pour le machine learning et le traitement de données</li>
-                        <li><strong>Esprit d'équipe</strong> : Collaboration avec équipes internationales (France, Chine)</li>
-                    </ul>
-                </div>
+            <div class="tech-stack">
+              <strong>Compétences :</strong> HTML5, CSS3, JavaScript, React.js,
+              Node.js, Bootstrap, Git/GitHub
             </div>
+          </div>
 
-            <div id="profile-emploi" class="hidden">
-                <span class="profile-badge badge-emploi">💼 Recherche Emploi</span>
-                <div class="alert alert-info">
-                    <h4 style="margin-bottom: 15px; color: #a5f3fc; font-size: 1.3em;">Ingénieur en Développement Logiciel Full Stack</h4>
-                    <p><strong>Ingénieur en développement logiciel avec plus de 10 ans d'expérience</strong>, dont 4 ans au Centre de Physique des Particules de Marseille (CNRS/CPPM). Polyvalent, rigoureux et dynamique, j'ai acquis une expertise en gestion de projets, développement d'applications complexes et intégration d'infrastructures réseau.</p>
-                    <p style="margin-top: 15px;"><strong>Expertise technique confirmée</strong> : JavaScript (Node.js, React.js), Python, PostgreSQL, MongoDB, Docker, CI/CD, Administration Linux. Spécialisé dans le développement d'applications scientifiques, l'automatisation de pipelines de traitement de données et la supervision d'infrastructures Big Data.</p>
-                    <p style="margin-top: 15px;"><strong>Recherche un poste</strong> de développeur Full Stack, data engineer ou chef de projet technique dans des environnements innovants (recherche scientifique, spatial, technologie, data science).</p>
-                </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2011</span>
+            <h3>📊 Responsable de Centre de Profit</h3>
+            <p><strong>AFPA</strong></p>
+            <ul>
+              <li>✓ Définition et mise en place de la stratégie commerciale</li>
+              <li>✓ Gestion du personnel et management d'équipe</li>
+              <li>✓ Pilotage de l'activité et gestion commerciale</li>
+              <li>✓ Finance et comptabilité</li>
+            </ul>
+          </div>
 
-                <div class="alert alert-success">
-                    <h4 style="margin-bottom: 15px; color: #10b981; font-size: 1.2em;">Points forts :</h4>
-                    <ul style="margin-left: 20px;">
-                        <li><strong>Projets d'envergure</strong> : SVOM (spatial franco-chinois), DIRAC, e-PERON</li>
-                        <li><strong>Leadership technique</strong> : Gestion de +1M d'entrées, réduction 30% temps traitement</li>
-                        <li><strong>Full Stack complet</strong> : Front (React.js), Back (Node.js, Python), DevOps (Docker, CI/CD)</li>
-                        <li><strong>Big Data & Monitoring</strong> : Stack ELK, Grafana, supervision 40+ services</li>
-                        <li><strong>Collaboration internationale</strong> : Projets avec équipes France/Chine</li>
-                        <li><strong>Documentation & Formation</strong> : Mentorat nouveaux arrivants, documentation technique complète</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+          <div class="timeline-item">
+            <span class="timeline-date">1998</span>
+            <h3>📚 BTS Comptabilité</h3>
+            <p><strong>Lycée Saint-Jean - Salon de Provence</strong></p>
+            <p>Niveau BTS Comptabilité & Gestion</p>
+          </div>
 
-        <section id="competences">
-            <h2>Compétences Techniques</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>💻 Backend & API</h3>
-                    <div class="skill-item">
-                        <span>Node.js / Express</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Python</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>REST API</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                </div>
+          <div class="timeline-item">
+            <span class="timeline-date">1994</span>
+            <h3>🎓 BAC G2 Comptabilité</h3>
+            <p><strong>Lycée Paul Langevin - Martigues</strong></p>
+          </div>
+        </div>
+      </section>
 
-                <div class="skill-category">
-                    <h3>🎨 Frontend</h3>
-                    <div class="skill-item">
-                        <span>React.js / Redux</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>HTML5 / CSS3</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Bootstrap</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                </div>
 
-                <div class="skill-category">
-                    <h3>🗄️ Bases de données</h3>
-                    <div class="skill-item">
-                        <span>PostgreSQL</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>MySQL</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                </div>
 
-                <div class="skill-category">
-                    <h3>🚀 DevOps & CI/CD</h3>
-                    <div class="skill-item">
-                        <span>Docker</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>GitLab CI</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>SonarQube</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>📊 Big Data & Supervision</h3>
-                    <div class="skill-item">
-                        <span>Elasticsearch</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Logstash / Kibana</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Grafana</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>🖥️ Systèmes & Réseaux</h3>
-                    <div class="skill-item">
-                        <span>Ubuntu Server</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Apache / Nginx</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>RAID / NFS</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>⚙️ Méthodes</h3>
-                    <div class="skill-item">
-                        <span>Agile / Scrum</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Tests unitaires</span>
-                        <span class="stars">★★★★☆</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Documentation</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>🎯 Qualités</h3>
-                    <div class="skill-item">
-                        <span>Rigueur</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Autonomie</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <div class="skill-item">
-                        <span>Esprit d'équipe</span>
-                        <span class="stars">★★★★★</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2>Expérience Professionnelle</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="timeline-date">2019 - 2024</span>
-                    <h3>🚀 Développeur Full Stack - CNRS / CPPM</h3>
-                    <p><strong>Centre de Physique des Particules de Marseille</strong></p>
-                    <p><em>Projets : SVOM (spatial franco-chinois), e-PERON (éducatif), DIRAC (Big Data)</em></p>
-                    <ul>
-                        <li>✓ Développement d'interfaces web scientifiques (React.js, Node.js)</li>
-                        <li>✓ Création et maintenance d'API REST (Node.js / PostgreSQL) pour le GIC</li>
-                        <li>✓ Intégration et automatisation de chaînes de traitement d'images (Python)</li>
-                        <li>✓ Déploiement de pipelines CI/CD (GitLab), Dockerisation et supervision via SonarQube</li>
-                        <li>✓ Administration de serveurs (Ubuntu, RAID, NFS, Apache, PostgreSQL, pm2)</li>
-                        <li>✓ Collaboration au FSC (Centre français de données du projet spatial SVOM)</li>
-                        <li>✓ Gestion de +1M d'entrées de données, réduction de 30% du temps de traitement</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <strong>Technologies :</strong> React.js, Node.js, Express, PostgreSQL, Python, Docker, GitLab CI/CD, Elasticsearch, Ubuntu Server
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2013 - 2018</span>
-                    <h3>📋 Gestionnaire Administratif et Opérationnel - ALOTRA</h3>
-                    <p><strong>Marseille</strong></p>
-                    <ul>
-                        <li>✓ Gestion opérationnelle et suivi administratif d'un parc immobilier</li>
-                        <li>✓ Optimisation et automatisation de tâches répétitives via scripts web</li>
-                        <li>✓ Développement d'outils internes pour faciliter la gestion des données</li>
-                        <li>✓ Amélioration du reporting et des processus métiers</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <strong>Technologies :</strong> PHP, MySQL, HTML5, CSS3, Bootstrap
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2001 - 2011</span>
-                    <h3>👨‍💼 Responsable de Projet - CyberKfé</h3>
-                    <p><strong>Marseille</strong></p>
-                    <ul>
-                        <li>✓ Conception et déploiement de progiciels métiers (gestion, comptabilité)</li>
-                        <li>✓ Animation, formation et coordination de projets numériques territoriaux</li>
-                        <li>✓ Mise en place de solutions informatiques pour cyber cafés</li>
-                        <li>✓ Gestion d'équipe et suivi de projets techniques</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <strong>Technologies :</strong> Visual Basic, C, PHP, MySQL, Réseaux
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projets">
-            <h2>Projets Marquants</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>🛰️ SVOM / COLIBRI</h3>
-                    <p><strong>Projet spatial franco-chinois</strong></p>
-                    <p>✓ Gestion de télescopes robotiques pour la détection de sursauts gamma</p>
-                    <p>✓ Conception de plateformes web scientifiques (GIC)</p>
-                    <p>✓ Automatisation de chaînes de traitement d'images astronomiques</p>
-                    <p>✓ Dashboards temps réel (qualité du ciel, capteurs)</p>
-                    <p>✓ +1 million d'entrées gérées</p>
-                    <div class="tech-stack">
-                        <strong>Stack :</strong> React.js, Node.js, PostgreSQL, Python, Docker, GitLab CI/CD
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>🔬 e-PERON</h3>
-                    <p><strong>Plateforme éducative scientifique</strong></p>
-                    <p>✓ Interface d'accès aux données sur les rayons cosmiques</p>
-                    <p>✓ Outils d'analyse pour enseignants et élèves</p>
-                    <p>✓ Graphiques interactifs (Chart.js, D3.js)</p>
-                    <p>✓ 50+ enseignants, 300+ élèves utilisateurs</p>
-                    <p>✓ Optimisation pour millions de lignes de données</p>
-                    <div class="tech-stack">
-                        <strong>Stack :</strong> React.js, Node.js, PostgreSQL, Chart.js, D3.js
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>📊 DIRAC - Monitoring Big Data</h3>
-                    <p><strong>Calcul distribué physique hautes énergies</strong></p>
-                    <p>✓ Installation et configuration ELK Stack</p>
-                    <p>✓ Supervision centralisée pour 40+ services</p>
-                    <p>✓ Dashboards personnalisés par équipe</p>
-                    <p>✓ Analyse et visualisation de logs complexes</p>
-                    <p>✓ Formation des collaborateurs à l'outil</p>
-                    <div class="tech-stack">
-                        <strong>Stack :</strong> Elasticsearch, Logstash, Kibana, Grafana, React.js
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>⚽ World Soccer Place</h3>
-                    <p><strong>Projet Wild Code School</strong></p>
-                    <p>✓ WebApp de référencement football mondial</p>
-                    <p>✓ Base de données équipes et joueurs internationaux</p>
-                    <p>✓ Intégration API données en temps réel</p>
-                    <p>✓ Interface responsive et moderne</p>
-                    <p>✓ Projet en équipe (méthodes Agile)</p>
-                    <div class="tech-stack">
-                        <strong>Stack :</strong> React.js, Node.js, Bootstrap, API Football
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>📱 Coiffinthestreet</h3>
-                    <p><strong>Application Android</strong></p>
-                    <p>✓ App pour coiffeurs bénévoles</p>
-                    <p>✓ Géolocalisation et mise en relation</p>
-                    <p>✓ Système de réservation intégré</p>
-                    <p>✓ Interface intuitive et accessible</p>
-                    <div class="tech-stack">
-                        <strong>Stack :</strong> React Native, Node.js, MongoDB
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>🏆 HANDIPACA - Hackathon DataWeek</h3>
-                    <p><strong>2ème place - 24h de développement</strong></p>
-                    <p>✓ Application Android d'accessibilité</p>
-                    <p>✓ Solution innovante en 24h</p>
-                    <p>✓ Travail en équipe sous pression</p>
-                    <p>✓ Présentation devant jury professionnel</p>
-                    <div class="tech-stack">
-                        <strong>Stack :</strong> React Native, Node.js, API externes
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>🏠 Gestion Locative Immobilière</h3>
-                    <p><strong>Système de gestion complet</strong></p>
-                    <p>✓ Suivi loyers en temps réel</p>
-                    <p>✓ Génération documents (quittances, états lieux)</p>
-                    <p>✓ Relances automatiques</p>
-                    <p>✓ Dashboard de pilotage</p>
-                    <div class="tech-stack">
-                        <strong>Stack :</strong> PHP, MySQL, HTML5, CSS3, Bootstrap
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>💰 Bulletin de Paie en Ligne</h3>
-                    <p><strong>Solution de gestion sociale</strong></p>
-                    <p>✓ Calcul automatique des paies</p>
-                    <p>✓ Contrats aidés (CAE), réduction Fillon</p>
-                    <p>✓ Gestion des primes et cotisations</p>
-                    <p>✓ Export comptable automatisé</p>
-                    <div class="tech-stack">
-                        <strong>Stack :</strong> PHP, MySQL, Bootstrap
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="formation">
-            <h2>Formation</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="timeline-date">Fév - Juil 2019</span>
-                    <h3>🎓 Développeur Web & Mobile (BAC +2)</h3>
-                    <p><strong>Wild Code School - Marseille</strong></p>
-                    <ul>
-                        <li>✓ Formation intensive de 5 mois</li>
-                        <li>✓ Réalisation d'applications Android (React Native, Node.js)</li>
-                        <li>✓ Participation à plusieurs hackathons (DataWeek 2ème place, Easter Egg)</li>
-                        <li>✓ Méthodologie Agile / Scrum</li>
-                        <li>✓ Projets en équipe et individuels</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <strong>Compétences :</strong> HTML5, CSS3, JavaScript, React.js, Node.js, Bootstrap, Git/GitHub
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2011</span>
-                    <h3>📊 Responsable de Centre de Profit</h3>
-                    <p><strong>AFPA</strong></p>
-                    <ul>
-                        <li>✓ Définition et mise en place de la stratégie commerciale</li>
-                        <li>✓ Gestion du personnel et management d'équipe</li>
-                        <li>✓ Pilotage de l'activité et gestion commerciale</li>
-                        <li>✓ Finance et comptabilité</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">1998</span>
-                    <h3>📚 BTS Comptabilité</h3>
-                    <p><strong>Lycée Saint-Jean - Salon de Provence</strong></p>
-                    <p>Niveau BTS Comptabilité & Gestion</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">1994</span>
-                    <h3>🎓 BAC G2 Comptabilité</h3>
-                    <p><strong>Lycée Paul Langevin - Martigues</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p><strong>Hafid Benamar</strong> - Développeur IA & Data Engineer</p>
-            <p style="margin-top: 15px;">📍 83149 Bras | 📞 06.20.08.53.03 | ✉ cyberhafid@gmail.com</p>
-            <p style="margin-top: 10px;">🌐 <a href="https://github.com/cyberhafid" style="color: #a5f3fc;">GitHub</a> | 🗓 <a href="https://linkedin.com/in/hafid-benamar" style="color: #a5f3fc;">LinkedIn</a></p>
-            <p style="margin-top: 20px; font-size: 0.9em; color: #cbd5e1;">💡 Passionné par l'espace, la science et l'innovation technologique</p>
-        </footer>
+      <footer>
+        <p><strong>Hafid Benamar</strong> - Développeur IA & Data Engineer</p>
+        <p style="margin-top: 15px">
+          📍 83149 Bras | 📞 06.20.08.53.03 | ✉ cyberhafid@gmail.com
+        </p>
+        <p style="margin-top: 10px">
+          🌐
+          <a href="https://github.com/cyberhafid" style="color: #a5f3fc"
+            >GitHub</a
+          >
+          | 🗓
+          <a href="https://linkedin.com/in/hafid-benamar" style="color: #a5f3fc"
+            >LinkedIn</a
+          >
+        </p>
+        <p style="margin-top: 20px; font-size: 0.9em; color: #cbd5e1">
+          💡 Passionné par l'espace, la science et l'innovation technologique
+        </p>
+      </footer>
     </div>
 
     <script>
-        // Générer des étoiles animées
-        function createStars() {
-            const container = document.getElementById('starsContainer');
-            const numStars = 100;
-            
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.width = star.style.height = Math.random() * 3 + 1 + 'px';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                container.appendChild(star);
-            }
-        }
+      // Générer des étoiles animées
+      function createStars() {
+        const container = document.getElementById('starsContainer');
+        const numStars = 100;
 
-        // Fonction pour changer de profil
-        function showProfile(type) {
-            const alternanceProfile = document.getElementById('profile-alternance');
-            const emploiProfile = document.getElementById('profile-emploi');
-            const buttons = document.querySelectorAll('.toggle-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            if (type === 'alternance') {
-                alternanceProfile.classList.remove('hidden');
-                emploiProfile.classList.add('hidden');
-                buttons[0].classList.add('active');
-            } else {
-                alternanceProfile.classList.add('hidden');
-                emploiProfile.classList.remove('hidden');
-                buttons[1].classList.add('active');
-            }
+        for (let i = 0; i < numStars; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = Math.random() * 100 + '%';
+          star.style.width = star.style.height = Math.random() * 3 + 1 + 'px';
+          star.style.animationDelay = Math.random() * 3 + 's';
+          container.appendChild(star);
         }
+      }
 
-        // Initialiser les étoiles au chargement
-        createStars();
+      // Fonction pour changer de profil
+      function showProfile(type) {
+        const alternanceProfile = document.getElementById('profile-alternance');
+        const emploiProfile = document.getElementById('profile-emploi');
+        const buttons = document.querySelectorAll('.toggle-btn');
+
+        buttons.forEach((btn) => btn.classList.remove('active'));
+
+        if (type === 'alternance') {
+          alternanceProfile.classList.remove('hidden');
+          emploiProfile.classList.add('hidden');
+          buttons[0].classList.add('active');
+        } else {
+          alternanceProfile.classList.add('hidden');
+          emploiProfile.classList.remove('hidden');
+          buttons[1].classList.add('active');
+        }
+      }
+
+      // Initialiser les étoiles au chargement
+      createStars();
     </script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <!-- Modale -->
+    <div id="imgModal" class="modal">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <img class="modal-content" id="modalImage" alt="" />
+      <div id="modal-caption"></div>
+    </div>
+
+    <script>
+const modal = document.getElementById('imgModal');
+const modalImg = document.getElementById('modalImage');
+const caption = document.getElementById('modal-caption');
+const closeBtn = document.getElementById('closeModal');
+
+document.querySelectorAll('.project-card img, .timeline-item img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.onclick = () => {
+    modal.style.display = 'block';
+    modalImg.src = img.getAttribute('data-full') || img.src;
+    modalImg.alt = img.alt || '';
+    caption.textContent = img.getAttribute('data-caption') || img.alt || '';
+  };
+});
+
+closeBtn.onclick = e => {
+  e.stopPropagation();
+  modal.style.display = 'none';
+  modalImg.src = '';
+  caption.textContent = '';
+};
+
+modal.onclick = e => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    modalImg.src = '';
+    caption.textContent = '';
+  }
+};
+    </script>
+  </body>
 </html>
