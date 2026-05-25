@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hafid Benamar — Développeur Full Stack · IA / Data Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio-v1.css" />
+</head>
+<body data-density="comfortable" data-accent="lime" data-bg="on">
+
+<!-- Ambient background -->
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+<canvas id="constellation" aria-hidden="true"></canvas>
+
+<!-- Top navigation -->
+<header class="topnav">
+  <a class="brand" href="#top">
+    <span class="brand-mark">HB</span>
+    <span class="brand-meta">
+      <span class="brand-name">Hafid Benamar</span>
+      <span class="brand-role">Full Stack · IA / Data</span>
+    </span>
+  </a>
+  <nav class="nav-links">
+    <a href="#about">Profil</a>
+    <a href="#stack">Stack</a>
+    <a href="#experience">Expérience</a>
+    <a href="#projects">Projets</a>
+    <a href="#education">Formation</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="nav-cta" href="mailto:cyberhafid@gmail.com">
+    <span class="dot"></span>
+    Disponible
+  </a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-meta">
+        <span class="tag mono">// portfolio · 2025</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line">Développeur Full Stack</span>
+        <span class="line">orienté <span class="accent">IA</span></span>
+        <span class="line muted">&amp; Data Engineering.</span>
+      </h1>
+
+      <p class="hero-sub">
+        10 ans à concevoir, livrer et faire tourner des chaînes de
+        traitement de données scientifiques — du télescope spatial
+        franco-chinois SVOM au monitoring Big Data DIRAC. Aujourd'hui
+        en pivot assumé vers l'IA appliquée.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">
+          Voir les projets
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn ghost" href="mailto:cyberhafid@gmail.com">
+          cyberhafid@gmail.com
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">10<span>+</span></div>
+          <div class="stat-label">ans d'expérience<br/>full stack</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4<span>ans</span></div>
+          <div class="stat-label">CNRS / CPPM<br/>physique des particules</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1M<span>+</span></div>
+          <div class="stat-label">entrées de données<br/>traitées en pipeline</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">−30<span>%</span></div>
+          <div class="stat-label">temps de traitement<br/>après refonte</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="card-head">
+        <span class="mono small">~/whoami</span>
+        <span class="card-dots"><i></i><i></i><i></i></span>
+      </div>
+      <pre class="card-body mono"><span class="c-key">name</span>      <span class="c-val">"Hafid Benamar"</span>
+<span class="c-key">role</span>      <span class="c-val">"Full Stack · AI-curious"</span>
+<span class="c-key">location</span>  <span class="c-val">"Bras, 83149 · FR"</span>
+<span class="c-key">stack</span>     [<span class="c-val">"React"</span>, <span class="c-val">"Node"</span>, <span class="c-val">"Python"</span>,
+           <span class="c-val">"PostgreSQL"</span>, <span class="c-val">"Docker"</span>, <span class="c-val">"ELK"</span>]
+<span class="c-key">focus</span>     [<span class="c-val">"ML appliqué"</span>, <span class="c-val">"vision"</span>,
+           <span class="c-val">"data pipelines"</span>]
+<span class="c-key">status</span>    <span class="c-ok">"open to work"</span>
+<span class="c-key">links</span>     {
+  github:   <span class="c-link">@cyberhafid</span>,
+  linkedin: <span class="c-link">/in/hafid-benamar</span>
+}</pre>
+    </aside>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-head">
+      <span class="section-num mono">01</span>
+      <h2>Profil</h2>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="about-grid">
+      <p class="about-lead">
+        Ingénieur logiciel avec <strong>10+ ans d'expérience</strong>, dont 4 ans
+        au <strong>Centre de Physique des Particules de Marseille (CNRS/CPPM)</strong>.
+        Je conçois des applications scientifiques de bout en bout — front, back,
+        pipelines de données, infrastructure — pour des équipes internationales.
+      </p>
+      <p class="about-body">
+        Mon terrain de jeu actuel : automatiser le traitement d'images
+        astronomiques pour SVOM, superviser 40+ services DIRAC en stack ELK,
+        outiller la pédagogie scientifique pour e-PERON. Je cherche maintenant
+        à apporter cette rigueur à des projets <strong>IA appliquée</strong> —
+        vision par ordinateur, ML sur données scientifiques, ingénierie de
+        données pour modèles.
+      </p>
+      <ul class="about-bullets">
+        <li><span class="b-ico">◆</span> Projets d'envergure internationale (France / Chine)</li>
+        <li><span class="b-ico">◆</span> Autonome de la spec au déploiement CI/CD</li>
+        <li><span class="b-ico">◆</span> Mentorat, documentation, transmission</li>
+        <li><span class="b-ico">◆</span> Curiosité forte ML / vision / data science</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="section">
+    <div class="section-head">
+      <span class="section-num mono">02</span>
+      <h2>Stack technique</h2>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="stack-grid">
+      <article class="stack-card">
+        <header><span class="mono">backend</span><span class="dot-ind"></span></header>
+        <ul>
+          <li>Node.js / Express<span class="lvl" data-lvl="5"></span></li>
+          <li>Python<span class="lvl" data-lvl="4"></span></li>
+          <li>REST API<span class="lvl" data-lvl="5"></span></li>
+        </ul>
+      </article>
+      <article class="stack-card">
+        <header><span class="mono">frontend</span><span class="dot-ind"></span></header>
+        <ul>
+          <li>React.js / Redux<span class="lvl" data-lvl="5"></span></li>
+          <li>HTML5 / CSS3<span class="lvl" data-lvl="5"></span></li>
+          <li>Bootstrap<span class="lvl" data-lvl="4"></span></li>
+        </ul>
+      </article>
+      <article class="stack-card">
+        <header><span class="mono">data</span><span class="dot-ind"></span></header>
+        <ul>
+          <li>PostgreSQL<span class="lvl" data-lvl="5"></span></li>
+          <li>MySQL<span class="lvl" data-lvl="4"></span></li>
+          <li>MongoDB<span class="lvl" data-lvl="3"></span></li>
+        </ul>
+      </article>
+      <article class="stack-card">
+        <header><span class="mono">devops</span><span class="dot-ind"></span></header>
+        <ul>
+          <li>Docker<span class="lvl" data-lvl="5"></span></li>
+          <li>GitLab CI/CD<span class="lvl" data-lvl="5"></span></li>
+          <li>SonarQube<span class="lvl" data-lvl="4"></span></li>
+        </ul>
+      </article>
+      <article class="stack-card">
+        <header><span class="mono">observability</span><span class="dot-ind"></span></header>
+        <ul>
+          <li>Elasticsearch<span class="lvl" data-lvl="4"></span></li>
+          <li>Logstash / Kibana<span class="lvl" data-lvl="4"></span></li>
+          <li>Grafana<span class="lvl" data-lvl="4"></span></li>
+        </ul>
+      </article>
+      <article class="stack-card">
+        <header><span class="mono">systems</span><span class="dot-ind"></span></header>
+        <ul>
+          <li>Ubuntu Server<span class="lvl" data-lvl="5"></span></li>
+          <li>Apache / Nginx<span class="lvl" data-lvl="4"></span></li>
+          <li>RAID / NFS<span class="lvl" data-lvl="4"></span></li>
+        </ul>
+      </article>
+      <article class="stack-card highlight">
+        <header><span class="mono">ai / ml</span><span class="dot-ind pulse"></span></header>
+        <ul>
+          <li>Python data stack<span class="lvl" data-lvl="4"></span></li>
+          <li>Vision / traitement image<span class="lvl" data-lvl="3"></span></li>
+          <li>ML appliqué <span class="learn">en cours</span></li>
+        </ul>
+        <p class="stack-note">Pivot actuel : ML / vision / data science.</p>
+      </article>
+      <article class="stack-card">
+        <header><span class="mono">methods</span><span class="dot-ind"></span></header>
+        <ul>
+          <li>Agile / Scrum<span class="lvl" data-lvl="5"></span></li>
+          <li>Tests unitaires<span class="lvl" data-lvl="4"></span></li>
+          <li>Documentation<span class="lvl" data-lvl="5"></span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-head">
+      <span class="section-num mono">03</span>
+      <h2>Expérience</h2>
+      <span class="section-rule"></span>
+      <span class="section-meta mono">6 postes · ordre anti-chronologique</span>
+    </div>
+
+    <ol class="timeline">
+
+      <li class="tl-item current">
+        <div class="tl-spine"><span class="tl-node"></span></div>
+        <div class="tl-body">
+          <header>
+            <span class="tl-date mono">2019 — 2024</span>
+            <span class="tl-tag mono">SCIENTIFIC · BIG DATA</span>
+          </header>
+          <h3>Développeur Full Stack <span class="tl-org">— CNRS / CPPM</span></h3>
+          <p class="tl-place">Centre de Physique des Particules de Marseille · Projets&nbsp;: <em>SVOM</em>, <em>e-PERON</em>, <em>DIRAC</em>.</p>
+          <ul class="tl-list">
+            <li>Interfaces scientifiques (React.js + Node.js) pour le GIC SVOM.</li>
+            <li>API REST Node.js / PostgreSQL — gestion de +1M d'entrées.</li>
+            <li>Chaînes de traitement d'images astronomiques en Python.</li>
+            <li>Pipelines CI/CD GitLab, Dockerisation, qualité via SonarQube.</li>
+            <li>Admin Ubuntu, RAID, NFS, Apache, PostgreSQL, pm2.</li>
+            <li>Collaboration FSC (centre français de données SVOM, France/Chine).</li>
+            <li>−30% sur le temps de traitement après refonte du pipeline.</li>
+          </ul>
+          <div class="tl-stack">
+            <span>React</span><span>Node</span><span>Python</span><span>PostgreSQL</span>
+            <span>Docker</span><span>GitLab CI</span><span>Elasticsearch</span><span>Ubuntu</span>
+          </div>
+          <div class="tl-shots" data-gallery="cnrs">
+            <figure class="shot" data-img="gic" style="--c1:#0c1a2f;--c2:#1d4ed8">
+              <span class="shot-label mono">GIC · dashboard capteurs</span>
+            </figure>
+            <figure class="shot" data-img="gic1" style="--c1:#0a1f1c;--c2:#10b981">
+              <span class="shot-label mono">GIC · qualité ciel</span>
+            </figure>
+          </div>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-spine"><span class="tl-node"></span></div>
+        <div class="tl-body">
+          <header>
+            <span class="tl-date mono">2013 — 2018</span>
+            <span class="tl-tag mono">PROPTECH · INTERNAL TOOLS</span>
+          </header>
+          <h3>Gestionnaire Locatif <span class="tl-org">— ALOTRA</span></h3>
+          <p class="tl-place">Marseille</p>
+          <ul class="tl-list">
+            <li>Gestion d'un parc immobilier — bail, relances, recouvrement, travaux.</li>
+            <li>Automatisation de tâches répétitives via scripts web internes.</li>
+            <li>Développement d'outils maison pour fluidifier la donnée métier.</li>
+            <li>Reporting amélioré, suivi budgétaire, contrôle des coûts.</li>
+            <li>RH&nbsp;: paie, formation, recrutement, plannings.</li>
+          </ul>
+          <div class="tl-stack">
+            <span>PHP</span><span>MySQL</span><span>HTML5</span><span>CSS3</span><span>Bootstrap</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-spine"><span class="tl-node"></span></div>
+        <div class="tl-body">
+          <header>
+            <span class="tl-date mono">2007 — 2011</span>
+            <span class="tl-tag mono">PROJET ITINÉRANT · ÉVÉNEMENTIEL</span>
+          </header>
+          <h3>Chef de projet <span class="tl-org">— CYBERBUS</span></h3>
+          <p class="tl-place">Marseille — bus informatisé itinérant</p>
+          <ul class="tl-list">
+            <li>Création du concept Bus Informatisé pour Cyber Kfé.</li>
+            <li>Analyse de l'existant, des besoins, macro-planification.</li>
+            <li>Présentation du projet aux partenaires financiers institutionnels.</li>
+            <li>Suivi et mise en œuvre des solutions, accompagnement du changement.</li>
+            <li>Évaluation physique et comptable, propositions d'actions.</li>
+            <li>Animation et coordination des actions du projet.</li>
+          </ul>
+          <div class="tl-shots" data-gallery="bus">
+            <figure class="shot" data-img="bus-recto" style="--c1:#3a1c0e;--c2:#f97316">
+              <span class="shot-label mono">Plaquette · recto</span>
+            </figure>
+            <figure class="shot" data-img="bus-verso" style="--c1:#1e1330;--c2:#a855f7">
+              <span class="shot-label mono">Plaquette · verso</span>
+            </figure>
+            <figure class="shot" data-img="fiche-enfant" style="--c1:#0f2336;--c2:#0ea5e9">
+              <span class="shot-label mono">Fiche · enfant</span>
+            </figure>
+            <figure class="shot" data-img="fiche-senior" style="--c1:#311a0e;--c2:#d97706">
+              <span class="shot-label mono">Fiche · senior</span>
+            </figure>
+          </div>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-spine"><span class="tl-node"></span></div>
+        <div class="tl-body">
+          <header>
+            <span class="tl-date mono">2007 — 2011</span>
+            <span class="tl-tag mono">RÉSEAU · INFRA</span>
+          </header>
+          <h3>Responsable technique <span class="tl-org">— CYBERBUS</span></h3>
+          <p class="tl-place">Marseille — informatique embarquée</p>
+          <ul class="tl-list">
+            <li>Réseau du Cyberbus (3G, Wi-Fi, filaire) — sites multiples.</li>
+            <li>Sécurisation du parc réseau, supervision serveurs Windows 2003.</li>
+            <li>Conception et développement de progiciels (PHP / HTML / CSS).</li>
+            <li>Animation multimédia&nbsp;: élèves, seniors, partenaires TICE.</li>
+            <li>Coordination, suivi administratif, présentations partenaires.</li>
+          </ul>
+          <div class="tl-stack">
+            <span>TCP/IP</span><span>3G</span><span>Wi-Fi</span><span>Windows Server</span><span>PHP</span><span>HTML</span><span>CSS</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-spine"><span class="tl-node"></span></div>
+        <div class="tl-body">
+          <header>
+            <span class="tl-date mono">2003 — 2004</span>
+            <span class="tl-tag mono">CENTRE MULTIMÉDIA</span>
+          </header>
+          <h3>Responsable centre de ressource multimédia <span class="tl-org">— Cyber Kfé</span></h3>
+          <p class="tl-place">Marseille</p>
+          <ul class="tl-list">
+            <li>Direction d'une équipe — applications pour cybercafés.</li>
+            <li>Progiciels comptables et gestion de salaires (Visual Basic).</li>
+            <li>Sécurisation et outils en C pour postes de travail.</li>
+            <li>Design, ergonomie, sites internet.</li>
+            <li>Gestion du réseau et des postes Windows / Linux.</li>
+          </ul>
+          <div class="tl-stack">
+            <span>Visual Basic</span><span>C</span><span>PHP</span><span>MySQL</span><span>Windows</span><span>Linux</span>
+          </div>
+          <div class="tl-shots" data-gallery="kfe">
+            <figure class="shot" data-img="cyberkfe" style="--c1:#0c1530;--c2:#6366f1">
+              <span class="shot-label mono">Plaquette Cyber Kfé</span>
+            </figure>
+          </div>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-spine"><span class="tl-node"></span></div>
+        <div class="tl-body">
+          <header>
+            <span class="tl-date mono">2001 — 2003</span>
+            <span class="tl-tag mono">ADMINISTRATIF</span>
+          </header>
+          <h3>Agent administratif <span class="tl-org">— Cyber Kfé</span></h3>
+          <p class="tl-place">Marseille</p>
+          <ul class="tl-list">
+            <li>Comptabilité générale jusqu'au bilan.</li>
+            <li>Paie, charges sociales, déclarations fiscales.</li>
+            <li>Encadrement d'une équipe de 6 personnes.</li>
+            <li>Suivi des plannings et absences.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-spine"><span class="tl-node"></span></div>
+        <div class="tl-body">
+          <header>
+            <span class="tl-date mono">1998 — 1999</span>
+            <span class="tl-tag mono">HARDWARE</span>
+          </header>
+          <h3>Monteur / Assembleur informatique <span class="tl-org">— Alpha Media</span></h3>
+          <p class="tl-place">Châteauneuf-les-Martigues</p>
+          <ul class="tl-list">
+            <li>Montage et assemblage complets d'ordinateurs.</li>
+            <li>Vérification compatibilité et tests de performances.</li>
+            <li>Préparation et installation des OS, optimisation logicielle.</li>
+          </ul>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-head">
+      <span class="section-num mono">04</span>
+      <h2>Projets marquants</h2>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="filter-bar">
+      <span class="mono">filter:</span>
+      <button class="chip active" data-filter="all">tous</button>
+      <button class="chip" data-filter="science">science</button>
+      <button class="chip" data-filter="data">big data</button>
+      <button class="chip" data-filter="web">web app</button>
+      <button class="chip" data-filter="mobile">mobile</button>
+      <button class="chip" data-filter="tools">internal tools</button>
+    </div>
+
+    <div class="projects">
+
+      <article class="project featured" data-tags="science data">
+        <div class="project-media">
+          <figure class="cover" data-img="svom" style="--c1:#06121f;--c2:#1d4ed8;--c3:#22d3ee">
+            <div class="cover-overlay">
+              <span class="mono">SVOM · COLIBRI</span>
+              <span class="cover-sub">Space-Variable Object Monitor</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <circle cx="40" cy="60" r="22" stroke="currentColor" stroke-width="1" opacity=".5"/>
+              <circle cx="40" cy="60" r="6" fill="currentColor"/>
+              <path d="M40 38 L40 18 M58 60 L78 60 M40 82 L40 102 M22 60 L2 60" stroke="currentColor" stroke-width="1" opacity=".4"/>
+              <path d="M100 100 Q140 60 180 30" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <circle cx="180" cy="30" r="3" fill="currentColor"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">science · spatial</span>
+            <span class="mono tag-pill">big data</span>
+          </div>
+          <h3>SVOM / COLIBRI</h3>
+          <p class="project-lead">Mission spatiale franco-chinoise — détection de sursauts gamma. Plateforme web scientifique (GIC), automatisation du traitement d'images astronomiques, dashboards temps réel.</p>
+          <ul class="project-bullets">
+            <li>+1M d'entrées gérées en pipeline</li>
+            <li>Dashboards capteurs et qualité du ciel</li>
+            <li>Coordination France / Chine (FSC)</li>
+          </ul>
+          <div class="tl-stack">
+            <span>React</span><span>Node</span><span>PostgreSQL</span><span>Python</span><span>Docker</span><span>GitLab CI</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" data-tags="science web">
+        <div class="project-media">
+          <figure class="cover" data-img="eperon" style="--c1:#0a1f1c;--c2:#10b981;--c3:#84cc16">
+            <div class="cover-overlay">
+              <span class="mono">e-PERON</span>
+              <span class="cover-sub">Pédagogie scientifique</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <path d="M10 100 L40 70 L70 85 L100 50 L130 65 L160 30 L190 45" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <circle cx="40" cy="70" r="2.5" fill="currentColor"/>
+              <circle cx="100" cy="50" r="2.5" fill="currentColor"/>
+              <circle cx="160" cy="30" r="2.5" fill="currentColor"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">éducatif</span>
+            <span class="mono tag-pill">data viz</span>
+          </div>
+          <h3>e-PERON</h3>
+          <p class="project-lead">Plateforme éducative donnant accès aux données sur les rayons cosmiques. Outils d'analyse pour enseignants et élèves, graphiques interactifs.</p>
+          <ul class="project-bullets">
+            <li>50+ enseignants, 300+ élèves</li>
+            <li>Optimisé pour millions de lignes</li>
+            <li>Chart.js · D3.js</li>
+          </ul>
+          <div class="tl-stack">
+            <span>React</span><span>Node</span><span>PostgreSQL</span><span>Chart.js</span><span>D3</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" data-tags="data">
+        <div class="project-media">
+          <figure class="cover" data-img="dirac" style="--c1:#170a2b;--c2:#7c3aed;--c3:#22d3ee">
+            <div class="cover-overlay">
+              <span class="mono">DIRAC · ELK</span>
+              <span class="cover-sub">Monitoring Big Data</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <rect x="20" y="80" width="14" height="30" fill="currentColor" opacity=".7"/>
+              <rect x="42" y="60" width="14" height="50" fill="currentColor" opacity=".55"/>
+              <rect x="64" y="40" width="14" height="70" fill="currentColor" opacity=".7"/>
+              <rect x="86" y="70" width="14" height="40" fill="currentColor" opacity=".55"/>
+              <rect x="108" y="20" width="14" height="90" fill="currentColor"/>
+              <rect x="130" y="50" width="14" height="60" fill="currentColor" opacity=".7"/>
+              <rect x="152" y="35" width="14" height="75" fill="currentColor" opacity=".55"/>
+              <rect x="174" y="65" width="14" height="45" fill="currentColor" opacity=".7"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">big data</span>
+            <span class="mono tag-pill">observability</span>
+          </div>
+          <h3>DIRAC — Monitoring</h3>
+          <p class="project-lead">Supervision centralisée pour le calcul distribué de physique des hautes énergies. Stack ELK + Grafana, dashboards par équipe, formation des collaborateurs.</p>
+          <ul class="project-bullets">
+            <li>40+ services supervisés</li>
+            <li>Analyse de logs complexes</li>
+            <li>Dashboards personnalisés</li>
+          </ul>
+          <div class="tl-stack">
+            <span>Elasticsearch</span><span>Logstash</span><span>Kibana</span><span>Grafana</span><span>React</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" data-tags="web">
+        <div class="project-media">
+          <figure class="cover" data-img="wsp" style="--c1:#0f1a0e;--c2:#16a34a;--c3:#a3e635">
+            <div class="cover-overlay">
+              <span class="mono">World Soccer Place</span>
+              <span class="cover-sub">Wild Code School</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <circle cx="100" cy="60" r="38" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M100 22 L113 50 L142 50 L119 68 L128 96 L100 78 L72 96 L81 68 L58 50 L87 50 Z" fill="currentColor" opacity=".7"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">web app</span>
+            <span class="mono tag-pill">API</span>
+          </div>
+          <h3>World Soccer Place</h3>
+          <p class="project-lead">WebApp de référencement du football mondial — équipes, joueurs, données temps réel. Projet Wild Code School en équipe (Agile).</p>
+          <div class="tl-stack">
+            <span>React</span><span>Node</span><span>Bootstrap</span><span>API Football</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" data-tags="mobile">
+        <div class="project-media">
+          <figure class="cover" data-img="coiff" style="--c1:#1f0a1e;--c2:#db2777;--c3:#f472b6">
+            <div class="cover-overlay">
+              <span class="mono">Coiffinthestreet</span>
+              <span class="cover-sub">Android app</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <path d="M100 20 C70 20 70 60 100 60 C130 60 130 20 100 20 Z" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M100 60 L100 100 M86 100 L114 100" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="100" cy="100" r="4" fill="currentColor"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">mobile</span>
+            <span class="mono tag-pill">solidaire</span>
+          </div>
+          <h3>Coiffinthestreet</h3>
+          <p class="project-lead">App Android pour coiffeurs bénévoles — géolocalisation, mise en relation, réservation.</p>
+          <div class="tl-stack">
+            <span>React Native</span><span>Node</span><span>MongoDB</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" data-tags="mobile">
+        <div class="project-media">
+          <figure class="cover" data-img="handi" style="--c1:#0a1a30;--c2:#0ea5e9;--c3:#facc15">
+            <div class="cover-overlay">
+              <span class="mono">HANDIPACA</span>
+              <span class="cover-sub">Hackathon DataWeek · 2ᵉ</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <circle cx="100" cy="60" r="40" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M88 50 L100 70 L116 44" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">hackathon</span>
+            <span class="mono tag-pill">accessibilité</span>
+          </div>
+          <h3>HANDIPACA</h3>
+          <p class="project-lead">Application Android d'accessibilité — 24h chrono, 2ème place DataWeek, présentation jury.</p>
+          <div class="tl-stack">
+            <span>React Native</span><span>Node</span><span>APIs externes</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" data-tags="tools web">
+        <div class="project-media">
+          <figure class="cover" data-img="loc" style="--c1:#1a1006;--c2:#ca8a04;--c3:#facc15">
+            <div class="cover-overlay">
+              <span class="mono">Gestion locative</span>
+              <span class="cover-sub">Outil interne immobilier</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <path d="M40 90 L40 50 L100 20 L160 50 L160 90 Z" stroke="currentColor" stroke-width="1.4" fill="none"/>
+              <rect x="70" y="60" width="20" height="30" stroke="currentColor"/>
+              <rect x="110" y="60" width="20" height="20" stroke="currentColor"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">internal tools</span>
+          </div>
+          <h3>Gestion locative immobilière</h3>
+          <p class="project-lead">Suivi des loyers temps réel, génération de quittances et états des lieux, relances automatiques, dashboard de pilotage.</p>
+          <div class="tl-stack">
+            <span>PHP</span><span>MySQL</span><span>HTML5</span><span>CSS3</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" data-tags="tools">
+        <div class="project-media">
+          <figure class="cover" data-img="paie" style="--c1:#0c1f24;--c2:#0d9488;--c3:#5eead4">
+            <div class="cover-overlay">
+              <span class="mono">Paie en ligne</span>
+              <span class="cover-sub">Solution gestion sociale</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <rect x="40" y="20" width="120" height="80" rx="4" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M55 40 L145 40 M55 55 L120 55 M55 70 L130 70 M55 85 L100 85" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">internal tools</span>
+          </div>
+          <h3>Bulletin de paie en ligne</h3>
+          <p class="project-lead">Calcul automatique des paies, contrats aidés (CAE), réduction Fillon, primes et cotisations, export comptable.</p>
+          <div class="tl-stack">
+            <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" data-tags="web">
+        <div class="project-media">
+          <figure class="cover" data-img="bus" style="--c1:#1c0c0a;--c2:#dc2626;--c3:#fb923c">
+            <div class="cover-overlay">
+              <span class="mono">Cyberbus</span>
+              <span class="cover-sub">Bus informatisé itinérant</span>
+            </div>
+            <svg class="cover-art" viewBox="0 0 200 120" fill="none">
+              <rect x="20" y="40" width="140" height="50" rx="6" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="50" cy="95" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="140" cy="95" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="30" y="50" width="20" height="20" stroke="currentColor"/>
+              <rect x="56" y="50" width="20" height="20" stroke="currentColor"/>
+              <rect x="82" y="50" width="20" height="20" stroke="currentColor"/>
+              <rect x="108" y="50" width="20" height="20" stroke="currentColor"/>
+              <rect x="134" y="50" width="20" height="20" stroke="currentColor"/>
+            </svg>
+          </figure>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span class="mono tag-pill">événementiel</span>
+            <span class="mono tag-pill">réseau</span>
+          </div>
+          <h3>Cyberbus — itinérant</h3>
+          <p class="project-lead">Création et développement d'un bus informatisé itinérant à Marseille. Réseau TCP/IP, Wi-Fi, 3G+, animation multimédia tous publics.</p>
+          <div class="tl-stack">
+            <span>TCP/IP</span><span>Wi-Fi / 3G</span><span>Windows Server</span><span>PHP</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="section-head">
+      <span class="section-num mono">05</span>
+      <h2>Formation</h2>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="edu-grid">
+      <article class="edu-card">
+        <span class="edu-date mono">Fév — Juil 2019</span>
+        <h3>Développeur Web &amp; Mobile <span class="edu-level">— BAC +2</span></h3>
+        <p class="edu-place">Wild Code School · Marseille</p>
+        <ul>
+          <li>Formation intensive — 5 mois</li>
+          <li>Applications Android (React Native, Node.js)</li>
+          <li>Hackathons : DataWeek (2ᵉ), Easter Egg</li>
+          <li>Agile / Scrum, projets équipe &amp; individuels</li>
+        </ul>
+        <div class="tl-stack">
+          <span>JS</span><span>React</span><span>Node</span><span>Git</span>
+        </div>
+      </article>
+      <article class="edu-card">
+        <span class="edu-date mono">2011</span>
+        <h3>Responsable de Centre de Profit</h3>
+        <p class="edu-place">AFPA</p>
+        <ul>
+          <li>Stratégie commerciale</li>
+          <li>Management d'équipe</li>
+          <li>Pilotage activité &amp; gestion</li>
+          <li>Finance &amp; comptabilité</li>
+        </ul>
+      </article>
+      <article class="edu-card">
+        <span class="edu-date mono">1998</span>
+        <h3>BTS Comptabilité</h3>
+        <p class="edu-place">Lycée Saint-Jean · Salon de Provence</p>
+      </article>
+      <article class="edu-card">
+        <span class="edu-date mono">1994</span>
+        <h3>BAC G2 Comptabilité</h3>
+        <p class="edu-place">Lycée Paul Langevin · Martigues</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="contact-inner">
+      <div class="contact-text">
+        <span class="mono small accent-text">// contact</span>
+        <h2>Travaillons sur le prochain projet.</h2>
+        <p>Disponible pour un poste full stack orienté IA / data — chercheurs, startups deeptech, équipes scientifiques. La distance ne me fait pas peur, le travail bien fait non plus.</p>
+      </div>
+      <div class="contact-cards">
+        <a class="c-card" href="mailto:cyberhafid@gmail.com">
+          <span class="mono small">email</span>
+          <span class="c-val-big">cyberhafid@gmail.com</span>
+        </a>
+        <a class="c-card" href="tel:+33620085303">
+          <span class="mono small">téléphone</span>
+          <span class="c-val-big">06.20.08.53.03</span>
+        </a>
+        <a class="c-card" href="https://github.com/cyberhafid" target="_blank" rel="noopener">
+          <span class="mono small">github</span>
+          <span class="c-val-big">@cyberhafid</span>
+        </a>
+        <a class="c-card" href="https://linkedin.com/in/hafid-benamar" target="_blank" rel="noopener">
+          <span class="mono small">linkedin</span>
+          <span class="c-val-big">/in/hafid-benamar</span>
+        </a>
+        <div class="c-card static">
+          <span class="mono small">localisation</span>
+          <span class="c-val-big">83149 Bras · Permis B</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-line"></div>
+    <div class="foot-grid">
+      <span class="mono">© 2025 — Hafid Benamar</span>
+      <span class="mono muted">Full Stack · IA / Data Engineering</span>
+      <span class="mono muted">Designed &amp; built with care.</span>
+    </div>
+  </footer>
+
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">×</button>
+  <div class="lb-content">
+    <div class="lb-frame" id="lbFrame"></div>
+    <div class="lb-cap mono" id="lbCap"></div>
+  </div>
+</div>
+
+<!-- Tweaks defaults -->
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "lime",
+  "density": "comfortable",
+  "bg": "on"
+}/*EDITMODE-END*/;
+</script>
+
+<script src="portfolio-v1.js"></script>
+</body>
+</html>
